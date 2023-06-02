@@ -2,6 +2,7 @@ import logging
 from os import environ, mkdir, path, sys
 #from dotenv import load_dotenv
 from pyrogram import Client
+from os import getenv
 
 # Log
 logging.basicConfig(
@@ -23,6 +24,8 @@ except KeyError:
 # Optional Variable
 AUTH_CHATS = environ.get("AUTH_CHATS", "").split()
 AUTH_CHATS = [int(_x) for _x in AUTH_CHATS]
+OPENAI_API = getenv("OPENAI_API", "") # get api key : https://platform.openai.com/account/api-keys
+
 class Mbot(Client):
     def __init__(self):
         name = self.__class__.__name__.lower()
