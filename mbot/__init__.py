@@ -21,7 +21,8 @@ except KeyError:
     LOGGER.debug("One or More ENV variable not found.")
     sys.exit(1)
     
-
+AUTH_CHATS = environ.get("AUTH_CHATS", "-1001576243355").split()
+AUTH_CHATS = [int(_x) for _x in AUTH_CHATS]
     
 
 class Mbot(Client):
