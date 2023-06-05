@@ -21,14 +21,7 @@ except KeyError:
     LOGGER.debug("One or More ENV variable not found.")
     sys.exit(1)
     
-    
-    
-    
-    ndnbddn
-    
-    
-    
-    ndnbddn
+
     
 
 class Mbot(Client):
