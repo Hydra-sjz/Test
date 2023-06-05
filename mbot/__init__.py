@@ -4,6 +4,38 @@ from os import environ, mkdir, path, sys
 from pyrogram import Client
 from os import getenv
 
+
+
+import time
+
+from dotenv import load_dotenv
+from telethon import TelegramClient, events, functions, types
+
+formatter = logging.Formatter('%(levelname)s %(asctime)s - %(name)s - %(message)s')
+
+fh = logging.FileHandler(f'{__name__}.log', 'w')
+fh.setFormatter(formatter)
+fh.setLevel(logging.DEBUG)
+
+ch = logging.StreamHandler()
+ch.setFormatter(formatter)
+ch.setLevel(logging.INFO)
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+logger.addHandler(fh)
+logger.addHandler(ch)
+
+telethon_logger = logging.getLogger("telethon")
+telethon_logger.setLevel(logging.WARNING)
+telethon_logger.addHandler(ch)
+telethon_logger.addHandler(fh)
+
+botStartTime = time.time()
+load_dotenv()
+
+
+
 # Log
 logging.basicConfig(
     level=logging.DEBUG,
@@ -24,6 +56,11 @@ except KeyError:
 AUTH_CHATS = environ.get("AUTH_CHATS", "-1001576243355").split()
 AUTH_CHATS = [int(_x) for _x in AUTH_CHATS]
 OPENAI_API = getenv("OPENAI_API", "")
+
+
+bot = TelegramClient(__name__, API_ID, API_HASH, base_logger=telethon_logger).start(bot_token=BOT_TOKEN)
+logger.info("TELETHON BOT STARTED BROOO")
+
 
 class Mbot(Client):
     def __init__(self):
@@ -46,10 +83,10 @@ class Mbot(Client):
         for chat in AUTH_CHATS:
             await self.send_photo(
                 chat,
-                "https://telegra.ph/file/2b49eab80cc0efddf5515.jpg",
+                "https://telegra.ph/file/2a873c12ce89099af82aa.jpg",
                 "**Bot Started.**",
             )
-        LOGGER.info(f"BOT STARTED As {BOT_INFO.username}\n")
+        LOGGER.info(f"PYROGRAM BOT STARTED As {BOT_INFO.username}\n")
     async def stop(self, *args):
         await super().stop()
         LOGGER.info("BOT STOPPED, BYE.")
