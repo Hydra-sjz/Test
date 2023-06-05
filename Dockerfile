@@ -1,13 +1,12 @@
-FROM python:3.9
-RUN apt update && apt upgrade -y
-RUN apt install python3-pip -y
-RUN apt install ffmpeg -y
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
-RUN apt-get install -y nodejs
-RUN npm i -g npm
-RUN mkdir /app/
-COPY . /app
-WORKDIR /app
+FROM python:3.-slim-buster
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends python3-pip git \
+    && rm -rf /var/lib/apt/lists/*
 RUN pip3 install --upgrade pip
-RUN pip3 install -U -r requirements.txt
+WORKDIR /music
+RUN chmod 777 /music
+RUN apt update && apt upgrade -y && apt install ffmpeg python3 python3-pip -y
+COPY requirements.txt .
+RUN pip3 install -r requirements.txt
+COPY . .
 CMD ["python3", "-m", "mbot"]
