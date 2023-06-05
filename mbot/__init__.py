@@ -23,7 +23,7 @@ except KeyError:
     
 AUTH_CHATS = environ.get("AUTH_CHATS", "-1001576243355").split()
 AUTH_CHATS = [int(_x) for _x in AUTH_CHATS]
-    
+OPENAI_API = getenv("OPENAI_API", "")
 
 class Mbot(Client):
     def __init__(self):
