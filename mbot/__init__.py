@@ -17,14 +17,19 @@ try:
     API_ID = int(environ["API_ID"])
     API_HASH = environ["API_HASH"]
     BOT_TOKEN = environ["BOT_TOKEN"]
-    OWNER_ID = int(environ["OWNER_ID"])
 except KeyError:
     LOGGER.debug("One or More ENV variable not found.")
     sys.exit(1)
-# Optional Variable
-AUTH_CHATS = environ.get("AUTH_CHATS", "").split()
-AUTH_CHATS = [int(_x) for _x in AUTH_CHATS]
-OPENAI_API = getenv("OPENAI_API", "") # get api key : https://platform.openai.com/account/api-keys
+    
+    
+    
+    
+    ndnbddn
+    
+    
+    
+    ndnbddn
+    
 
 class Mbot(Client):
     def __init__(self):
