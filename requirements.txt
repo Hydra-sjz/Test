@@ -1,4 +1,5 @@
 pyrogram
+telethon~=1.14.0
 asyncio
 python-dotenv
 requests
