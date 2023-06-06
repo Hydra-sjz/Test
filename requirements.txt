@@ -1,6 +1,6 @@
 pyrogram
 telethon~=1.14.0
-python-telegram-bot==11.1.0
+
 asyncio
 python-dotenv
 requests
@@ -23,5 +23,4 @@ umongo==3.0.1
 dnspython
 textblob==0.17.1
 bs4
-kbbi
-pyowm
+
