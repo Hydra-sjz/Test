@@ -16,3 +16,4 @@ aiohttp==3.8.1
 
 apscheduler==3.10.1
 wget
+emoji==1.6.3
