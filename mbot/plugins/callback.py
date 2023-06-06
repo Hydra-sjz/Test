@@ -4,7 +4,7 @@ from mbot import Mbot as app
 from pyrogram.types import InlineKeyboardButton,InlineKeyboardMarkup
 import wget
 import os 
-
+import requests
 
 
 
@@ -81,5 +81,49 @@ async def mailbox(client,message):
             await message.edit_message_text(mailbox_vieww,reply_markup=buttons)
             os.remove(dlattach)
             
-            
+#UD
+@app.on_callback_query(filters.regex("^udnxt"))   
+async def next(_, query):
+         user_id = int(query.data.split(":")[1])
+         text = str(query.data.split(":")[2])
+         num = int(query.data.split(":")[3])+1
+         if not query.from_user.id == user_id:
+             return await query.answer("This is not for You!")
+         api = requests.get(f"https://api.urbandictionary.com/v0/define?term={text}").json()
+         mm = api["list"]
+         uwu = mm[num]
+         if num == len(mm)-1:
+             string = f"🔍 **Ward**: {uwu.get('word')}\n\n📝 **Definition**: {uwu.get('definition')}\n\n✏️ **Example**: {uwu.get('example')}\n\n"
+             string += f"Page: {num+1}/{len(mm)}"
+             return await query.message.edit(text=string, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('➡️ Back', callback_data=f"udbck:{query.from_user.id}:{text}:{num}")]]))
+         else:
+             string = f"🔍 **Ward**: {uwu.get('word')}\n\n📝 **Definition**: {uwu.get('definition')}\n\n✏️ **Example**: {uwu.get('example')}\n\n"
+             string += f"Page: {num+1}/{len(mm)}"
+             buttons = [[
+                  InlineKeyboardButton("⬅️", callback_data=f"udbck:{query.from_user.id}:{text}:{num}"),
+                  InlineKeyboardButton("➡️", callback_data=f"udnxt:{query.from_user.id}:{text}:{num}") 
+             ]]
+             return await query.message.edit(text=string, reply_markup=InlineKeyboardMarkup(buttons))
+@app.on_callback_query(filters.regex("^udbck"))   
+async def back(_, query):
+         user_id = int(query.data.split(":")[1])
+         text = str(query.data.split(":")[2])
+         num = int(query.data.split(":")[3])-1
+         if not query.from_user.id == user_id:
+             return await query.answer("This is not for You!")
+         api = requests.get(f"https://api.urbandictionary.com/v0/define?term={text}").json()
+         mm = api["list"]
+         uwu = mm[num]
+         if num == 0:
+             string = f"🔍 **Ward**: {uwu.get('word')}\n\n📝 **Definition**: {uwu.get('definition')}\n\n✏️ **Example**: {uwu.get('example')}\n\n"
+             string += f"Page: {num+1}/{len(mm)}"
+             return await query.message.edit(text=string, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('➡️ Next', callback_data=f"udnxt:{query.from_user.id}:{text}:{num}")]]))
+         else:
+             string = f"🔍 **Ward**: {uwu.get('word')}\n\n📝 **Definition**: {uwu.get('definition')}\n\n✏️ **Example**: {uwu.get('example')}\n\n"
+             string += f"Page: {num+1}/{len(mm)}"
+             buttons = [[
+                  InlineKeyboardButton("⬅️", callback_data=f"udbck:{query.from_user.id}:{text}:{num}"),
+                  InlineKeyboardButton("➡️", callback_data=f"udnxt:{query.from_user.id}:{text}:{num}") 
+             ]]
+             return await query.message.edit(text=string, reply_markup=InlineKeyboardMarkup(buttons))
             
