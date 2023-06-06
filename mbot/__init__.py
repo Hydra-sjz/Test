@@ -4,8 +4,6 @@ from os import environ, mkdir, path, sys
 from pyrogram import Client
 from os import getenv
 import telegram.ext as tg
-import os
-
 
 import time
 
@@ -35,9 +33,7 @@ telethon_logger.addHandler(fh)
 botStartTime = time.time()
 load_dotenv()
 
-updater = tg.Updater(BOT_TOKEN, workers=WORKERS)
 
-dispatcher = updater.dispatcher
 
 # Log
 logging.basicConfig(
@@ -59,7 +55,6 @@ except KeyError:
 AUTH_CHATS = environ.get("AUTH_CHATS", "-1001576243355").split()
 AUTH_CHATS = [int(_x) for _x in AUTH_CHATS]
 OPENAI_API = getenv("OPENAI_API", "")
-WORKERS = int(os.environ.get('WORKERS', 8))
 
 bot = TelegramClient(__name__, API_ID, API_HASH, base_logger=telethon_logger).start(bot_token=BOT_TOKEN)
 logger.info("TELETHON BOT STARTED BROOO")
