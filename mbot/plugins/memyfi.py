@@ -1,7 +1,7 @@
 import os
 import textwrap
 from PIL import Image, ImageDraw, ImageFont
-from mbot import telethn as bot
+from mbot import bot
 from mbot.events import register
 Credit = "AnonymousBoy1025"
 @register(pattern="^/mmf ?(.*)")
