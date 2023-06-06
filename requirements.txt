@@ -4,7 +4,7 @@ asyncio
 python-dotenv
 requests
 aiofiles
-motor
+motor==2.5.1
 httpx[http2]
 cryptg
 tgCrypto>=1.2.2
