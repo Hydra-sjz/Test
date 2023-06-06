@@ -23,4 +23,5 @@ umongo==3.0.1
 dnspython
 textblob==0.17.1
 bs4
-
+kbbi
+pyowm
