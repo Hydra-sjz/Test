@@ -16,7 +16,7 @@ async def search_anime_kitsu(bot, update):
         await bot.send_message(
                 chat_id=update.chat.id,
                 text=f"Searching for: <code>{name}</code>",
-                reply_to_message_id=update.message.id
+                reply_to_messagei.id=update.message.id
             )
         titles, aids = await kitsu_get_title(name)
         if titles:
