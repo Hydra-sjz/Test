@@ -1,6 +1,8 @@
 from pyrogram import Client, filters
 from helper.kitsu_api import kitsu_get_title
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+
+
 @Client.on_message(filters.command(["kitsu"]))
 async def search_anime_kitsu(bot, update):
     try:
@@ -14,7 +16,7 @@ async def search_anime_kitsu(bot, update):
         await bot.send_message(
                 chat_id=update.chat.id,
                 text=f"Searching for: <code>{name}</code>",
-                reply_to_message_id=update.message_id
+                reply_to_message_id=update.message.id
             )
         titles, aids = await kitsu_get_title(name)
         if titles:
