@@ -3,7 +3,7 @@ from os import environ, mkdir, path, sys
 #from dotenv import load_dotenv
 from pyrogram import Client
 from os import getenv
-import telegram.ext as tg
+
 
 import time
 
