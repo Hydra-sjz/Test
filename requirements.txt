@@ -24,10 +24,3 @@ textblob==0.17.1
 bs4
 ffmpeg==1.4
 
-yt_dlp
-youtube_dl
-
-youtube_search_python
-
-youtube_search
-python-telegram-bot==20.3
