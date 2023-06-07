@@ -36,7 +36,7 @@ async def edit_or_reply(message, text):
         if message.reply_to_message:
             kk = message.reply_to_message.id
             return await message.reply_text(
-                text, reply_to_message_id=kk
+                text, reply_to_message.id=kk
             )
         return await message.reply_text(text)
     return await message.edit(text)
