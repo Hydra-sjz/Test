@@ -104,7 +104,6 @@ async def shazamm(client: Client, message: Message):
             audio=file,
             caption=capt,
             quote=True,
-            parse_mode='html',
             duration=dur,
             performer=f"[RiyaMusicBot]",
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Watch Video", url=yt_result['link'])]]),
