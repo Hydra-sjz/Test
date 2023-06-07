@@ -1,10 +1,9 @@
 pyrogram
 telethon~=1.14.0
-
+aiofiles
 asyncio
 python-dotenv
 requests
-aiofiles
 motor==2.5.1
 httpx[http2]
 cryptg
@@ -23,4 +22,11 @@ umongo==3.0.1
 dnspython
 textblob==0.17.1
 bs4
+ffmpeg==1.4
 
+yt_dlp
+youtube_dl
+
+youtube_search_python
+
+youtube_search
