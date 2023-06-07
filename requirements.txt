@@ -23,4 +23,4 @@ dnspython
 textblob==0.17.1
 bs4
 ffmpeg==1.4
-jikanpy
+urllib3
