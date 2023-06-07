@@ -5,7 +5,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQ
 import wget
 import os 
 import requests
-from pyrogram import filters
+from pyrogram import filters, Client
 from helper.kitsu_api import kitsu_get_anime
 
 
