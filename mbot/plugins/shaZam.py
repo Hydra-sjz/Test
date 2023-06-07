@@ -16,7 +16,7 @@ import yt_dlp
 from youtube_search import YoutubeSearch
 import requests
 from pyrogram import filters
-from plugins.function.pluginhelpers import edit_or_reply, fetch_audio
+from helper.pluginhelpers import edit_or_reply, fetch_audio
 #from pyrogram import Client
 from mbot import Mbot
 # Convert hh:mm:ss to seconds
