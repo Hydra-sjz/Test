@@ -34,7 +34,7 @@ async def fetch_audio(client, message):
 async def edit_or_reply(message, text):
     if message.from_user.id:
         if message.reply_to_message:
-            kk = message.reply_to_message.message.id
+            kk = message.reply_to_message..id
             return await message.reply_text(
                 text, reply_to_message_id=kk
             )
