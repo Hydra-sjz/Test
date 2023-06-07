@@ -1,11 +1,12 @@
 from pyrogram import *
 import requests as re
 from mbot import Mbot as app
-from pyrogram.types import InlineKeyboardButton,InlineKeyboardMarkup
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 import wget
 import os 
 import requests
-
+from pyrogram import filters
+from helper.kitsu_api import kitsu_get_anime
 
 
 email=''
@@ -126,4 +127,23 @@ async def back(_, query):
                   InlineKeyboardButton("➡️", callback_data=f"udnxt:{query.from_user.id}:{text}:{num}") 
              ]]
              return await query.message.edit(text=string, reply_markup=InlineKeyboardMarkup(buttons))
+            
+@app.on_callback_query(filters.regex("k_"))
+async def get_anime_kitsu_cb(c: Client, cb: CallbackQuery):
+    a_id = cb.data.split("_")[1]
+    photo, msg = await kitsu_get_anime(a_id)
+    if msg:
+        await c.delete_messages(chat_id=cb.message.chat.id, message_ids=[cb.message.message_id])
+        await c.send_photo(
+            chat_id=cb.message.chat.id,
+            photo=photo,
+            caption=msg,
+            reply_to_message_id=cb.message.reply_to_message.message.id
+        ) 
+      
+            
+            
+            
+            
+            
             
