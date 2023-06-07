@@ -17,7 +17,7 @@ from youtube_search import YoutubeSearch
 import requests
 from pyrogram import filters
 from helper.pluginhelpers import edit_or_reply, fetch_audio
-#from pyrogram import Client
+from pyrogram import Client
 from mbot import Mbot
 # Convert hh:mm:ss to seconds
 def time_to_seconds(time):
