@@ -30,3 +30,4 @@ youtube_dl
 youtube_search_python
 
 youtube_search
+python-telegram-bot==20.3
