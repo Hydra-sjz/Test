@@ -31,15 +31,15 @@ async def fetch_audio(client, message):
         final_warner = await message.reply_to_message.download()
     await lel.delete()
     return final_warner
-async def edit_or_reply(message, text, parse_mode="md"):
+async def edit_or_reply(message, text):
     if message.from_user.id:
         if message.reply_to_message:
             kk = message.reply_to_message.message_id
             return await message.reply_text(
-                text, reply_to_message_id=kk, parse_mode=parse_mode
+                text, reply_to_message_id=kk
             )
-        return await message.reply_text(text, parse_mode=parse_mode)
-    return await message.edit(text, parse_mode=parse_mode)
+        return await message.reply_text(text)
+    return await message.edit(text)
 async def runcmd(cmd: str) -> Tuple[str, str, int, int]:
     """run command in terminal"""
     args = shlex.split(cmd)
