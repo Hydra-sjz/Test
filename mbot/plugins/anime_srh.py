@@ -3,8 +3,8 @@ import asyncio
 import requests
 from mbot import bot
 from telethon import events, Button
-from telehelpers.search import shorten, anime_query, GRAPHQL
-from telehelpers.other import format_results, conv_to_jpeg
+from helper.search import shorten, anime_query, GRAPHQL
+from helper.other import format_results, conv_to_jpeg
 import logging
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s', level=logging.WARNING)
 @bot.on(events.NewMessage(incoming=True, pattern='/anime ?(.*)'))
