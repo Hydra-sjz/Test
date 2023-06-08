@@ -31,7 +31,7 @@ from mbot.utils2.helper import (
 )
 from mbot.utils2.data_parser import check_if_adult
 from mbot.utils2.db import get_collection
-from mbot.plugins.anibot.anilist import no_pic
+from mbot.plugins.animply.anilist import no_pic
 
 SFW_GRPS = get_collection("SFW_GROUPS")
 DC = get_collection('DISABLED_CMDS')
