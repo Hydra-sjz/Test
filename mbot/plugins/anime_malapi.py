@@ -1,6 +1,6 @@
 # myanilist api
 from pyrogram import Client, filters
-from database.mal_api import get_anime_list, get_anime_by_id
+from helper.mal_api import get_anime_list, get_anime_by_id
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 @Client.on_message(filters.command(["search_anime"]))
 async def search_anime_mal(bot, update):
