@@ -56,6 +56,15 @@ AUTH_CHATS = environ.get("AUTH_CHATS", "-1001576243355").split()
 AUTH_CHATS = [int(_x) for _x in AUTH_CHATS]
 OPENAI_API = getenv("OPENAI_API", "")
 
+#anime bot
+ANILIST_CLIENT = os.environ.get("ANILIST_CLIENT")
+ANILIST_SECRET = os.environ.get("ANILIST_SECRET")
+ANILIST_REDIRECT_URL = os.environ.get("ANILIST_REDIRECT_URL", "https://anilist.co/api/v2/oauth/pin")
+DB_URL = os.environ.get("DB_URL")
+BOT_NAME = os.environ.get("BOT_NAME", "spoti")
+TRIGGERS = os.environ.get("TRIGGERS", "/ !").split()
+
+
 bot = TelegramClient(__name__, API_ID, API_HASH, base_logger=telethon_logger).start(bot_token=BOT_TOKEN)
 logger.info("TELETHON BOT STARTED BROOO")
 
