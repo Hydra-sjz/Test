@@ -14,14 +14,15 @@ async def imdb(_, message):
     url = requests.get(f"https://api.safone.me/tmdb?query={text}").json()["results"][0]
     await message.reply_photo(
         photo=url["poster"],
-        caption=f"""**IMDB Movie Details :**
-**Title :** {url["title"]}
-**Description :** {url["overview"]}
-**Rating :** {url["rating"]}
-**Release-Date :** {url["releaseDate"]}
-**Popularity :** {url["popularity"]}
-**Runtime :** {url["runtime"]}
-**Status :** {url["status"]}
+        caption=f"""🎬**IMDB MOVIE DETAILS**🎬
+        
+🏷️**Title :** {url["title"]}
+📝**Description :** {url["overview"]}
+⭐**Rating :** {url["rating"]}
+📆**Release-Date :** {url["releaseDate"]}
+🔖**Popularity :** {url["popularity"]}
+⏱️**Runtime :** {url["runtime"]}
+📊**Status :** {url["status"]}
 """,
         reply_markup=InlineKeyboardMarkup(
             [
