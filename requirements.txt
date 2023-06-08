@@ -25,4 +25,4 @@ bs4
 ffmpeg==1.4
 urllib3
 requests_html
-jikanpy
+
