@@ -85,7 +85,7 @@ no_pic = [
 
 
 @anibot.on_message(
-    filters.command(["anime", f"anime{BOT_NAME}"], prefixes=trg)
+    filters.command(["anime3", f"anime{BOT_NAME}"], prefixes=trg)
 )
 @control_user
 async def anime_cmd(client: Client, message: Message, mdata: dict):
@@ -232,7 +232,7 @@ example: /manga The teasing master Takagi san"""
         PIC_LS.append(pic)
         
 @anibot.on_message(
-    filters.command(["character", f"character{BOT_NAME}"], prefixes=trg)
+    filters.command(["characters", f"character{BOT_NAME}"], prefixes=trg)
 )
 @control_user
 async def character_cmd(client: Client, message: Message, mdata: dict):
