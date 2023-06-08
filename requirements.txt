@@ -24,3 +24,4 @@ textblob==0.17.1
 bs4
 ffmpeg==1.4
 urllib3
+requests_html
