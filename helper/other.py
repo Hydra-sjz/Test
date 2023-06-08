@@ -1,5 +1,5 @@
 import requests
-from telehelpers.search import shorten
+from helper.search import shorten
 def conv_to_jpeg(image):
     response = requests.get(image)
     file_name = "anilist.jpg"
