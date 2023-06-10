@@ -45,14 +45,14 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 LOGGER = logging.getLogger(__name__)
 # Mandatory Variable
 try:
-    API_ID = int(environ["API_ID"])
-    API_HASH = environ["API_HASH"]
-    BOT_TOKEN = environ["BOT_TOKEN"]
+    API_ID = int(environ["API_ID", "11984338"])
+    API_HASH = environ["API_HASH", "ea4cb0f090d7366f7e4ab9dfc116acc7"]
+    BOT_TOKEN = environ["BOT_TOKEN", "5764337430:AAErAYClzy1xB_iH1Up2mN2kEIKGjNqymRY"]
 except KeyError:
     LOGGER.debug("One or More ENV variable not found.")
     sys.exit(1)
     
-AUTH_CHATS = environ.get("AUTH_CHATS", "-1001576243355").split()
+AUTH_CHATS = environ.get("AUTH_CHATS", "-1001976490968").split()
 AUTH_CHATS = [int(_x) for _x in AUTH_CHATS]
 OPENAI_API = getenv("OPENAI_API", "")
 
